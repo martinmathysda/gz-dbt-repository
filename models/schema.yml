@@ -8,9 +8,34 @@ sources:
       - name: product
         identifier: raw_gz_product
         description: stock of products
+        columns:
+          - name: products_id
+            description: primary key of the table
+          - name: purchse_price
+            description: purchase price for the customer
       - name: sales
         identifier: raw_gz_sales
         description: list of all sales and orders
+        columns:
+          - name: date_date
+            description: date of purchase
+          - name: orders_id
+            description: primary key of the table 
+          - name: pdt_id
+            description: foreign key
+          - name: revenue
+            description: dollar amount sold 
+          - name: quantity
+            description: amount of units sold
       - name: ship
         identifier: raw_gz_ship
         description: list with all shipping status
+        columns:
+          - name: orders_id
+            description: primary key
+          - name: shipping_fee
+            description: fee charged to customar for shipping
+          - name: logcost
+            description: cost of log for the business
+          - name: ship_cost
+            description: cost of shipping for the business
