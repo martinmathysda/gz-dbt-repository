@@ -5,12 +5,12 @@ sources:
     schema: gz_raw_data
     description: raw data from company gz sportwear 
     tables:
-      - name: raw_gz_product
-        identifier: product
+      - name: product
+        identifier: raw_gz_product
         description: stock of products
-      - name: raw_gz_sales
-        identifier: sales
+      - name: sales
+        identifier: raw_gz_sales
         description: list of all sales and orders
-      - name: raw_gz_ship
-        identifier: ship
+      - name: ship
+        identifier: raw_gz_ship
         description: list with all shipping status
