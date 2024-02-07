@@ -1,0 +1,50 @@
+version: 2
+
+sources:
+  - name: raw
+    schema: gz_raw_data
+    description: raw data from company gz sportwear 
+    tables:
+      - name: product
+        identifier: raw_gz_product
+        description: stock of products
+        columns:
+          - name: products_id
+            description: primary key of the table
+            tests:
+              - unique
+              - not_null
+          - name: purchse_price
+            description: purchase price for the customer
+      - name: sales
+        identifier: raw_gz_sales
+        description: list of all sales and orders
+        columns:
+          - name: date_date
+            description: date of purchase
+          - name: orders_id
+            description: foreign key
+          - name: pdt_id
+            description: foreign key
+          - name: revenue
+            description: dollar amount sold 
+          - name: quantity
+            description: amount of units sold
+        tests:
+           - unique:
+              column_name: "(orders_id || '-' || pdt_id)"
+      - name: ship
+        identifier: raw_gz_ship
+        description: list with all shipping status
+        columns:
+          - name: orders_id
+            description: primary key
+            tests:
+              - unique
+              - not_null
+          - name: shipping_fee
+            description: fee charged to customar for shipping
+          - name: logcost
+            description: cost of log for the business
+          - name: ship_cost
+            description: cost of shipping for the business
